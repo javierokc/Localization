@@ -43,7 +43,7 @@ def main():
     parser.add_option("-v", "--verbose", dest="verbose", action="store_true", default=False, help="Print more")
     parser.add_option("-m", "--method", dest="method", metavar="MODE", default="view", help="Use method MODE: create|erase|view (default=%default)")
     (cmdlineopt, args) = parser.parse_args()
-    if len(args) > 0:
+    if cmdlineopt.method in ("view","erase","create") and len(args) > 0:
         site = args[0]
     else:
         parser.print_help()
